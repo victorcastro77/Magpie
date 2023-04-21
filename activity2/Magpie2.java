@@ -22,7 +22,7 @@ public class Magpie2
     {
         return "Hello, let's talk.";
     }
-    
+
     /**
      * Gives a response to a user statement
      * 
@@ -33,6 +33,7 @@ public class Magpie2
     public String getResponse(String statement)
     {
         String response = "";
+        String newStatement = "";
         if (statement.indexOf("no") >= 0)
         {
             response = "Why so negative?";
@@ -41,10 +42,12 @@ public class Magpie2
         {
             response = "He sounds like an excellent teacher";
         }
-        else if ((statement.trim()).length() = 0);
-        {
-            response = "Please enter a message";
-        }
+        else if (statement.trim(); 
+        { 
+            if (statement.length() == 0) {
+                response = "Please enter a message";
+            }
+        } 
         {
             response = getRandomResponse();
         }
@@ -57,11 +60,11 @@ public class Magpie2
      */
     private String getRandomResponse()
     {
-        final int NUMBER_OF_RESPONSES = 4;
+        final int NUMBER_OF_RESPONSES = 6;
         double r = Math.random();
         int whichResponse = (int)(r * NUMBER_OF_RESPONSES);
         String response = "";
-        
+
         if (whichResponse == 0)
         {
             response = "Interesting, tell me more.";
@@ -78,7 +81,14 @@ public class Magpie2
         {
             response = "You don't say.";
         }
-
+        else if (whichResponse == 4)
+        {
+            response = "Thats amazing";
+        }
+        else if (whichResponse == 5)
+        {
+            response = "No way";
+        }
         return response;
     }
 }
