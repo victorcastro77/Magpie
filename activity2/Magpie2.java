@@ -34,7 +34,11 @@ public class Magpie2
     {
         String response = "";
         String newStatement = "";
-        if (statement.indexOf("no") >= 0)
+        statement.trim(); 
+        if (statement.length() == 0) {
+            response = "Please enter a message";
+        }
+        else if (statement.indexOf("no") >= 0)
         {
             response = "Why so negative?";
         }
@@ -42,12 +46,16 @@ public class Magpie2
         {
             response = "He sounds like an excellent teacher";
         }
-        else if (statement.trim(); 
-        { 
-            if (statement.length() == 0) {
-                response = "Please enter a message";
-            }
-        } 
+        else if (statement.indexOf("family") >= 0) 
+        {
+            response = "Tell me more about your family.";
+        }
+        else if (statement.indexOf("dog") >= 0
+                    || statement.indexOf("cat") >= 0)
+        {
+            response = "Tell me more about your pets.";
+        }
+        else
         {
             response = getRandomResponse();
         }
